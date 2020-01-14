@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
     const quotes = [
     {
         quote: 'Let us always meet each other with smile, for the smile is the beginning of love.',
@@ -44,24 +45,18 @@ import './index.css';
         quote: 'A new command I give you: Love one another. As I have loved you, so you must love one another.',
         author: 'Jesus Christ'
     },
-    {
-        quote: 'You have everything needed for the extravagant journey that is your life.',
-        author: 'Carlos Castaneda'
-    }
     ];
 
     class MyApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-	currentQuote: '',
-	currentAuthor: '',
-    attrib: ''
+	currentQuote: 'You have everything needed for the extravagant journey that is your life.',
+	currentAuthor: 'Carlos Castaneda',
    }
    
       this.handleChange = this.handleChange.bind(this);
       this.getRandomQuote = this.getRandomQuote.bind(this);
-      this.encodeForTwitter = this.encodeForTwitter.bind(this);
 
   }
 
@@ -75,57 +70,30 @@ getRandomQuote() {
 
 }
 
-componentDidMount() {
-    this.getRandomQuote();
-}
-
   handleChange(event) {
     this.setState({
- 	quote: '',
-	author: ''
+ 	text: 'You have everything needed for the extravagant journey that is your life.',
+	author: 'Carlos Castaneda'
 
     });
   }
   
-  encodeForTwitter() {
-      let attr = 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=';
-      let addString = encodeURIComponent('"' + this.state.currentQuote + '"' + this.state.currentAuthor);
-      
-      console.log(attr + addString);
-      this.setState({
-          attrib: attr + addString
-      });
- 
-   }
-   
-   render() {
-          
+  render() {
+           
       return (
-        <div id='wrapper'>
-        <div id='quote-box'>
-       <div className='quote-text'>
-       <i className='fa fa-quote-left'></i><span id='text'>{this.state.currentQuote}</span>
-       </div>
-       <div className='quote-author'>
-       <span id='author'>{this.state.currentAuthor}</span></div>
-       <div className='buttons'>
-        <a href={this.state.attrib}  className='button' id='tweet-quote' title='Tweet this quote!' onClick={this.encodeForTwitter}><i className='fa fa-twitter'></i>
-        </a>
-       <button className='button' id='new-quote' onClick={this.getRandomQuote}>
+       <div id='quote-box'>
+       <div id='text'>{this.state.currentQuote}</div>
+       <div id='author'>{this.state.currentAuthor}</div>
+       <button id='new-quote' onClick={this.getRandomQuote}>
           Get Random Quote
-        </button>        
-       </div>
-       
+        </button><br /><br />
+        <div id='tweet-quote'></div>
         
       </div>
-      </div>
- 
+
     );
   }
 };
-
-
-
 
 
 ReactDOM.render(
