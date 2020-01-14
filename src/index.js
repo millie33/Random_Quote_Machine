@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import FontAwesome from 'react-fontawesome';
 import './index.css';
 
     const quotes = [
@@ -109,10 +110,10 @@ componentDidMount() {
        <div className='quote-author'>
        <span id='author'>{this.state.currentAuthor}</span></div>
        <div className='buttons'>
-        <a href={this.state.attrib}  className='button' id='tweet-quote' title='Tweet this quote!' onClick={this.encodeForTwitter}><i className='fa fa-twitter'></i>
+        <a href={this.state.attrib} target="_blank" className='button' id='tweet-quote' title='Tweet this quote!' onClick={this.encodeForTwitter}><i className='fa fa-twitter'></i>
         </a>
        <button className='button' id='new-quote' onClick={this.getRandomQuote}>
-          Get Random Quote
+          Get New Quote
         </button>        
        </div>
        
